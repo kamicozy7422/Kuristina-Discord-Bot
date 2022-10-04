@@ -4,11 +4,13 @@ from discord.ext import commands, tasks
 from itertools import cycle
 from decouple import config
 
+# Initialisation of the bot
 intents = discord.Intents.default()
 intents.members = True
 client = commands.Bot(command_prefix = ['k+', 'K+'], case_insensitive=True, help_command=None, intents=intents)
 status = cycle(['Hacking To The Gate', 'I told you before its not Tina'])
 
+# Events
 @client.event
 async def on_ready():
     change_status.start()
